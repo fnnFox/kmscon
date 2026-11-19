@@ -668,6 +668,7 @@ static int bbulk_prepare(struct kmscon_text *txt, struct tsm_screen_attr *attr)
 	 */
 	if (memcmp(&bb->attr, attr, sizeof(*attr)) || display_need_redraw(txt->disp))
 		bb->redraw = 2;
+	bb->redraw = 2;
 
 	bb->attr = *attr;
 
