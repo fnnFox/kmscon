@@ -370,6 +370,9 @@ static void do_redraw_screen(struct screen *scr)
 	ret = display_swap(scr->disp);
 	if (ret && ret != -EBUSY)
 		log_warning("cannot swap display [%s] %d", display_name(scr->disp), ret);
+	if (ret == -EBUSY) {
+		log_warning("tried display_swap (%s), but function returned EBUSY flag: %d", display_name(scr->disp), ret);
+	}
 }
 
 static void redraw_screen(struct screen *scr)
